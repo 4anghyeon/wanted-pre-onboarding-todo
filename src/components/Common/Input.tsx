@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {forwardRef} from 'react';
 
 interface InputProps {
   value: string;
   changeEvent: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({value, changeEvent}: InputProps) => {
+const Input = forwardRef<HTMLInputElement, InputProps>(({value, changeEvent}, ref) => {
   return (
     <input
       type="text"
@@ -13,8 +13,9 @@ const Input = ({value, changeEvent}: InputProps) => {
       value={value}
       onChange={changeEvent}
       className="p-2 border-2 border-amber-300 rounded-lg"
+      ref={ref}
     />
   );
-};
+});
 
 export default Input;
