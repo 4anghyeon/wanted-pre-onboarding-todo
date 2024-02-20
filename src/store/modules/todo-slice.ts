@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-interface TodoType {
+export interface TodoType {
   id: string;
   content: string;
 }
@@ -18,7 +18,6 @@ const todoSlice = createSlice({
       };
 
       state.push(newTodo);
-
       return state;
     },
   },
