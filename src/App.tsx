@@ -1,5 +1,20 @@
+import ListRow from './components/List/ListRow.tsx';
+import InputRow from './components/List/InputRow.tsx';
+import {useSelector} from 'react-redux';
+import {RootState} from './store/store.ts';
+
 function App() {
-  return <h1 className="text-3xl font-bold underline text-amber-300">Hello world!</h1>;
+  const todos = useSelector((state: RootState) => state.todoSlice);
+  console.log(todos);
+
+  return (
+    <div className="flex flex-col m-10 justify-center items-center h-full">
+      <InputRow />
+      {todos.map(() => (
+        <ListRow />
+      ))}
+    </div>
+  );
 }
 
 export default App;
