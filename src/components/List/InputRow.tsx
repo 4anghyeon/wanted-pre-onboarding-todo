@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import {ChangeEvent, useRef, useState} from 'react';
 import Input from '../Common/Input.tsx';
 import Button from '../Common/Button.tsx';
 import {useDispatch} from 'react-redux';
@@ -9,7 +9,7 @@ const InputRow = () => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
 
@@ -30,7 +30,7 @@ const InputRow = () => {
 
   return (
     <div className="flex gap-5">
-      <Input value={inputValue} changeEvent={handleChangeInput} ref={inputRef} />
+      <Input value={inputValue} changeEvent={handleChangeInput} ref={inputRef} placeholder="할 일을 적어주세요" />
       <Button clickEvent={handleClickAdd} text={'등록'} />
     </div>
   );

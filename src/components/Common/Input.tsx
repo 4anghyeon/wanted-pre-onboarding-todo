@@ -1,15 +1,13 @@
-import React, {forwardRef} from 'react';
+import {ChangeEvent, forwardRef, InputHTMLAttributes} from 'react';
 
-interface InputProps {
-  value: string;
-  changeEvent: (e: React.ChangeEvent<HTMLInputElement>) => void;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  changeEvent: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({value, changeEvent}, ref) => {
   return (
     <input
       type="text"
-      placeholder={'할 일을 적어주세요'}
       value={value}
       onChange={changeEvent}
       className="p-2 border-2 border-amber-300 rounded-lg"
@@ -17,5 +15,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({value, changeEvent}, re
     />
   );
 });
+
+Input.displayName = 'Input';
 
 export default Input;
